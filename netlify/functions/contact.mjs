@@ -52,7 +52,7 @@ export async function handler(event) {
           from: "Silicon Bayou Designs <hello@siliconbayoudesigns.com>",
           to: email,
           subject:
-            "We received your message — Silicon Bayou Designs",
+            "We received your message - Silicon Bayou Designs",
           html: autoReplyHtml(name, projectType, budget),
         }),
       });
@@ -111,10 +111,10 @@ function autoReplyHtml(name, projectType, budget) {
                 Hey ${firstName}! We got your message.
               </h2>
               <p style="margin:0 0 24px; font-size:15px; line-height:1.7; color:rgba(255,255,255,0.7);">
-                Thanks for reaching out to Silicon Bayou Designs. We're excited you're thinking about working with us &mdash; that means a lot coming from folks who know quality when they see it.
+                Thanks for reaching out to Silicon Bayou Designs. We're excited you're thinking about working with us - that means a lot coming from folks who know quality when they see it.
               </p>
               <p style="margin:0 0 28px; font-size:15px; line-height:1.7; color:rgba(255,255,255,0.7);">
-                A real human (not a bot, we promise) will personally review your inquiry and <strong style="color:#ffffff;">get back to you within 24 hours</strong>. Usually sooner &mdash; we run on Louisiana coffee and tight deadlines.
+                A real human (not a bot, we promise) will personally review your inquiry and <strong style="color:#ffffff;">get back to you within 24 hours</strong>. Usually sooner - we run on Louisiana coffee and tight deadlines.
               </p>
 
               <!-- Summary Card -->
@@ -156,7 +156,7 @@ function autoReplyHtml(name, projectType, budget) {
               </table>
 
               <p style="margin:0 0 24px; font-size:15px; line-height:1.7; color:rgba(255,255,255,0.7);">
-                Got more details to share? Just hit reply &mdash; this inbox is monitored by actual humans who drink way too much Community Coffee.
+                Got more details to share? Just hit reply - this inbox is monitored by actual humans who drink way too much Community Coffee.
               </p>
 
               <!-- Sign-off -->
