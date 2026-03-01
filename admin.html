@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin Dashboard | Silicon Bayou Designs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --bg: #0e0620;
+      --bg-alt: #130a28;
+      --bg-card: #1a0e30;
+      --text: #f0ecf8;
+      --text-muted: rgba(255,255,255,0.65);
+      --text-light: rgba(255,255,255,0.4);
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(255,255,255,0.16);
+      --gold: #C8942A;
+      --gold-light: #E0B44C;
+      --purple-light: #9B5FD0;
+      --green-light: #22A050;
+      --blue: #4A90D9;
+      --blue-light: #6CB0F0;
+      --shadow: 0 8px 32px rgba(0,0,0,0.35);
+      --radius: 12px;
+      --radius-lg: 16px;
+    }
+    body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased; min-height:100vh; }
+    a { color:inherit; text-decoration:none; }
+
+    .admin-header {
+      padding:32px 48px 24px; border-bottom:1px solid var(--border);
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .admin-header h1 { font-family:'DM Serif Display',serif; font-size:1.5rem; }
+    .admin-header .back-link { font-size:.85rem; color:var(--text-muted); transition:color .2s; }
+    .admin-header .back-link:hover { color:var(--text); }
+    .admin-label {
+      display:inline-flex; align-items:center; gap:6px; padding:4px 12px;
+      background:rgba(200,148,42,0.12); border:1px solid rgba(200,148,42,0.25);
+      border-radius:99px; font-size:.68rem; font-weight:700; letter-spacing:.08em;
+      text-transform:uppercase; color:var(--gold-light); margin-left:16px;
+    }
+
+    .dashboard { padding:32px 48px; max-width:1200px; margin:0 auto; }
+
+    .section-heading {
+      font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+      color:var(--text-light); margin-bottom:16px; margin-top:40px;
+    }
+    .section-heading:first-child { margin-top:0; }
+
+    .card-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; }
+
+    .dash-card {
+      background:var(--bg-card); border-radius:var(--radius-lg); padding:28px 24px;
+      border:1px solid var(--border); position:relative; overflow:hidden;
+      transition:transform .3s, box-shadow .3s, border-color .3s;
+      display:flex; flex-direction:column; gap:16px;
+    }
+    .dash-card:hover { transform:translateY(-3px); box-shadow:var(--shadow); border-color:var(--border-hover); }
+    .dash-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      border-radius:var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .dash-card.ga::before { background:linear-gradient(135deg, #E37400, #F9AB00); }
+    .dash-card.clarity::before { background:linear-gradient(135deg, #0078D4, #50E6FF); }
+    .dash-card.search::before { background:linear-gradient(135deg, #4285F4, #34A853); }
+
+    .card-top { display:flex; align-items:center; gap:14px; }
+    .card-icon {
+      width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+      font-size:1.2rem;
+    }
+    .ga .card-icon { background:rgba(249,171,0,0.15); color:#F9AB00; }
+    .clarity .card-icon { background:rgba(0,120,212,0.15); color:#50E6FF; }
+    .search .card-icon { background:rgba(66,133,244,0.15); color:#4285F4; }
+
+    .card-title { font-size:1rem; font-weight:600; }
+    .card-subtitle { font-size:.78rem; color:var(--text-light); }
+
+    .card-id {
+      background:rgba(255,255,255,0.04); border:1px solid var(--border);
+      border-radius:8px; padding:10px 14px; font-family:monospace; font-size:.82rem;
+      color:var(--text-muted); display:flex; align-items:center; justify-content:space-between;
+    }
+    .card-id code { word-break:break-all; }
+    .copy-btn {
+      background:none; border:1px solid var(--border); border-radius:6px;
+      color:var(--text-light); padding:4px 10px; font-size:.72rem; cursor:pointer;
+      transition:all .2s; white-space:nowrap; margin-left:12px;
+    }
+    .copy-btn:hover { border-color:var(--gold-light); color:var(--gold-light); }
+    .copy-btn.copied { border-color:var(--green-light); color:var(--green-light); }
+
+    .card-link {
+      display:inline-flex; align-items:center; gap:8px; padding:10px 18px;
+      background:rgba(255,255,255,0.05); border:1px solid var(--border);
+      border-radius:99px; font-size:.82rem; font-weight:600; color:var(--text-muted);
+      transition:all .2s; align-self:flex-start;
+    }
+    .card-link:hover { border-color:var(--gold-light); color:var(--gold-light); }
+    .card-link svg { width:14px; height:14px; }
+
+    .status-row { display:flex; align-items:center; gap:8px; font-size:.78rem; }
+    .status-dot {
+      width:8px; height:8px; border-radius:50%;
+    }
+    .status-dot.active { background:#22A050; box-shadow:0 0 8px rgba(34,160,80,0.5); }
+    .status-dot.pending { background:#F9AB00; box-shadow:0 0 8px rgba(249,171,0,0.5); }
+    .status-text { color:var(--text-muted); }
+
+    .quick-links { margin-top:40px; }
+    .link-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; }
+    .quick-link {
+      background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius);
+      padding:20px; text-align:center; transition:all .3s; display:flex; flex-direction:column;
+      align-items:center; gap:10px;
+    }
+    .quick-link:hover { border-color:var(--border-hover); transform:translateY(-2px); box-shadow:var(--shadow); }
+    .quick-link span { font-size:.82rem; font-weight:600; }
+    .quick-link small { font-size:.72rem; color:var(--text-light); }
+
+    @media (max-width:1024px) {
+      .admin-header, .dashboard { padding-left:24px; padding-right:24px; }
+      .card-grid { grid-template-columns:1fr; }
+      .link-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width:768px) {
+      .link-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="admin-header">
+    <div style="display:flex;align-items:center;">
+      <h1>Analytics Dashboard</h1>
+      <span class="admin-label">Admin</span>
+    </div>
+    <a href="index.html" class="back-link">&larr; Back to site</a>
+  </header>
+
+  <div class="dashboard">
+
+    <div class="section-heading">Analytics Services</div>
+    <div class="card-grid">
+
+      <!-- GA4 -->
+      <div class="dash-card ga">
+        <div class="card-top">
+          <div class="card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          </div>
+          <div>
+            <div class="card-title">Google Analytics 4</div>
+            <div class="card-subtitle">Traffic, events & conversions</div>
+          </div>
+        </div>
+        <div class="card-id">
+          <code>G-WH498NRWKS</code>
+          <button class="copy-btn" onclick="copyId(this, 'G-WH498NRWKS')">Copy</button>
+        </div>
+        <div class="status-row">
+          <span class="status-dot pending"></span>
+          <span class="status-text">Waiting for first data (deploy site to activate)</span>
+        </div>
+        <a href="https://analytics.google.com" target="_blank" rel="noopener" class="card-link">
+          Open Dashboard <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+
+      <!-- Clarity -->
+      <div class="dash-card clarity">
+        <div class="card-top">
+          <div class="card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          </div>
+          <div>
+            <div class="card-title">Microsoft Clarity</div>
+            <div class="card-subtitle">Heatmaps, recordings & behavior</div>
+          </div>
+        </div>
+        <div class="card-id">
+          <code>vp27yzopc5</code>
+          <button class="copy-btn" onclick="copyId(this, 'vp27yzopc5')">Copy</button>
+        </div>
+        <div class="status-row">
+          <span class="status-dot pending"></span>
+          <span class="status-text">Waiting for first data (deploy site to activate)</span>
+        </div>
+        <a href="https://clarity.microsoft.com/projects/vp27yzopc5" target="_blank" rel="noopener" class="card-link">
+          Open Dashboard <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+
+      <!-- Search Console -->
+      <div class="dash-card search">
+        <div class="card-top">
+          <div class="card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div>
+            <div class="card-title">Google Search Console</div>
+            <div class="card-subtitle">Search performance & indexing</div>
+          </div>
+        </div>
+        <div class="card-id">
+          <code>bemlNzahWrlKzdeJsXYZEVKzru4cJ5XizNCBX6DjHyU</code>
+          <button class="copy-btn" onclick="copyId(this, 'bemlNzahWrlKzdeJsXYZEVKzru4cJ5XizNCBX6DjHyU')">Copy</button>
+        </div>
+        <div class="status-row">
+          <span class="status-dot pending"></span>
+          <span class="status-text">DNS verification pending</span>
+        </div>
+        <a href="https://search.google.com/search-console?resource_id=sc-domain:siliconbayoudesigns.com" target="_blank" rel="noopener" class="card-link">
+          Open Dashboard <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Quick Links -->
+    <div class="quick-links">
+      <div class="section-heading">Quick Links</div>
+      <div class="link-grid">
+        <a href="https://app.netlify.com" target="_blank" rel="noopener" class="quick-link">
+          <span>Netlify</span>
+          <small>Hosting & deploys</small>
+        </a>
+        <a href="https://dcc.godaddy.com" target="_blank" rel="noopener" class="quick-link">
+          <span>GoDaddy</span>
+          <small>Domain registrar</small>
+        </a>
+        <a href="https://pagespeed.web.dev/analysis?url=https://siliconbayoudesigns.com" target="_blank" rel="noopener" class="quick-link">
+          <span>PageSpeed</span>
+          <small>Performance audit</small>
+        </a>
+        <a href="sitemap.xml" target="_blank" class="quick-link">
+          <span>Sitemap</span>
+          <small>sitemap.xml</small>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function copyId(btn, text) {
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
