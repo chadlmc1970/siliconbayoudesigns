@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Design & Development | Silicon Bayou Designs | Baton Rouge, LA</title>
+  <meta name="description" content="Custom web design and development from Silicon Bayou Designs. Responsive, lightning-fast websites that convert visitors into customers. Baton Rouge, LA.">
+  <meta name="keywords" content="web design Baton Rouge, website development Louisiana, responsive web design, custom website, small business website">
+  <meta property="og:title" content="Web Design & Development -Silicon Bayou Designs">
+  <meta property="og:description" content="Responsive, lightning-fast websites that convert visitors into customers.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://siliconbayoudesigns.com/web-design">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --bg: #0e0620;
+      --bg-alt: #130a28;
+      --bg-card: #1a0e30;
+      --text: #f0ecf8;
+      --text-muted: rgba(255,255,255,0.65);
+      --text-light: rgba(255,255,255,0.4);
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(255,255,255,0.16);
+      --purple: #6B2FA0;
+      --purple-dark: #4A1D75;
+      --purple-light: #9B5FD0;
+      --gold: #C8942A;
+      --gold-dark: #A67820;
+      --gold-light: #E0B44C;
+      --green: #1A7A3C;
+      --green-light: #22A050;
+      --deep: #08041a;
+      --gp: linear-gradient(135deg, var(--purple), var(--purple-light));
+      --gg: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+      --gn: linear-gradient(135deg, var(--green), var(--green-light));
+      --shadow: 0 8px 32px rgba(0,0,0,0.35);
+      --radius: 12px;
+      --radius-lg: 16px;
+    }
+
+    html { scroll-snap-type: y proximity; scroll-behavior: smooth; }
+    body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+    a { color:inherit; text-decoration:none; }
+    img { max-width:100%; display:block; }
+
+    /* === NAV === */
+    .nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      background:rgba(14,6,32,0.85); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border);
+      padding:0 48px; height:64px; display:flex; align-items:center; justify-content:space-between;
+    }
+    .nav-logo { display:flex; align-items:center; gap:12px; font-family:'DM Serif Display',serif; font-size:1.15rem; }
+    .nav-logo img { height:36px; width:36px; object-fit:contain; }
+    .nav-links { display:flex; align-items:center; gap:32px; }
+    .nav-links a { font-size:.85rem; font-weight:500; color:var(--text-muted); transition:color .2s; }
+    .nav-links a:hover { color:var(--text); }
+    .nav-cta {
+      background:var(--gg); color:#fff; padding:10px 22px; border-radius:99px;
+      font-size:.82rem; font-weight:600; letter-spacing:.02em;
+      transition:transform .2s, box-shadow .2s; border:none; cursor:pointer;
+    }
+    .nav-cta:hover { transform:translateY(-1px); box-shadow:0 4px 20px rgba(200,148,42,0.4); }
+
+    /* === HERO === */
+    .hero {
+      min-height:100vh; scroll-snap-align:start;
+      display:flex; align-items:center; justify-content:center;
+      padding:120px 48px 80px; position:relative; overflow:hidden; text-align:center;
+    }
+    .hero::before {
+      content:''; position:absolute; top:-40%; left:50%; transform:translateX(-50%);
+      width:800px; height:800px; border-radius:50%;
+      background:radial-gradient(circle, rgba(200,148,42,0.15) 0%, transparent 70%);
+      pointer-events:none;
+    }
+    .hero-inner { position:relative; z-index:1; max-width:800px; }
+    .hero-icon {
+      width:80px; height:80px; border-radius:20px; margin:0 auto 28px;
+      background:rgba(200,148,42,0.15); border:1px solid rgba(200,148,42,0.3);
+      display:flex; align-items:center; justify-content:center; color:var(--gold-light);
+    }
+    .hero-label {
+      display:inline-flex; align-items:center; gap:8px; padding:6px 16px;
+      background:rgba(200,148,42,0.12); border:1px solid rgba(200,148,42,0.25);
+      border-radius:99px; font-size:.75rem; font-weight:600; letter-spacing:.06em;
+      text-transform:uppercase; color:var(--gold-light); margin-bottom:24px;
+    }
+    .hero h1 {
+      font-family:'DM Serif Display',serif; font-size:clamp(2.5rem,5vw,4rem);
+      line-height:1.1; margin-bottom:20px;
+    }
+    .hero h1 em { color:var(--gold-light); font-style:italic; }
+    .hero-sub { color:var(--text-muted); font-size:1.1rem; line-height:1.7; max-width:600px; margin:0 auto 36px; }
+    .hero-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+    /* === BUTTONS === */
+    .btn {
+      display:inline-flex; align-items:center; gap:8px; padding:14px 28px;
+      border-radius:99px; font-size:.88rem; font-weight:600; letter-spacing:.02em;
+      transition:all .3s; cursor:pointer; border:none;
+    }
+    .btn-primary { background:var(--gg); color:#fff; }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 6px 24px rgba(200,148,42,0.4); }
+    .btn-outline { background:transparent; color:var(--text); border:1px solid var(--border-hover); }
+    .btn-outline:hover { border-color:var(--gold-light); color:var(--gold-light); transform:translateY(-2px); }
+    .btn-purple { background:var(--gp); color:#fff; }
+    .btn-purple:hover { transform:translateY(-2px); box-shadow:0 6px 24px rgba(107,47,160,0.4); }
+
+    /* === SECTIONS === */
+    .section {
+      min-height:100vh; scroll-snap-align:start;
+      display:flex; align-items:center; justify-content:center;
+      padding:80px 48px; position:relative; overflow:hidden;
+    }
+    .section-alt { background:var(--bg-alt); }
+    .section-inner { max-width:1100px; margin:0 auto; }
+    .section-label {
+      display:inline-flex; align-items:center; gap:8px; padding:6px 16px;
+      background:rgba(200,148,42,0.1); border:1px solid rgba(200,148,42,0.2);
+      border-radius:99px; font-size:.72rem; font-weight:700; letter-spacing:.08em;
+      text-transform:uppercase; color:var(--gold-light); margin-bottom:16px;
+    }
+    .section-title {
+      font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,3.5vw,2.8rem);
+      line-height:1.15; margin-bottom:16px;
+    }
+    .section-subtitle { color:var(--text-muted); font-size:1rem; line-height:1.7; max-width:640px; margin-bottom:48px; }
+
+    /* === CARDS === */
+    .card-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .card {
+      background:var(--bg-card); border-radius:var(--radius-lg); padding:32px 28px;
+      border:1px solid var(--border); position:relative; overflow:hidden;
+      transition:transform .3s, box-shadow .3s, border-color .3s;
+    }
+    .card:hover { transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--border-hover); }
+    .card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      border-radius:var(--radius-lg) var(--radius-lg) 0 0; background:var(--gg);
+    }
+    .card-icon {
+      width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+      margin-bottom:18px; background:rgba(200,148,42,0.15); color:var(--gold-light);
+    }
+    .card h3 { font-size:1.15rem; margin-bottom:10px; }
+    .card p { color:var(--text-muted); font-size:.88rem; line-height:1.65; }
+
+    /* === TWO-COL === */
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+    .two-col-text .section-label { margin-bottom:16px; }
+    .two-col-text .section-title { margin-bottom:16px; }
+    .two-col-text p { color:var(--text-muted); line-height:1.75; font-size:.95rem; margin-bottom:20px; }
+
+    /* === STEPS === */
+    .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:28px; }
+    .step { text-align:center; }
+    .step-num {
+      width:56px; height:56px; border-radius:50%; margin:0 auto 18px;
+      display:flex; align-items:center; justify-content:center;
+      font-family:'DM Serif Display',serif; font-size:1.2rem; font-weight:700;
+      background:rgba(200,148,42,0.12); border:2px solid rgba(200,148,42,0.3);
+      color:var(--gold-light);
+    }
+    .step h3 { font-size:1.05rem; margin-bottom:8px; }
+    .step p { color:var(--text-muted); font-size:.83rem; line-height:1.6; }
+
+    /* === FEATURE LIST === */
+    .feature-list { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:14px 32px; }
+    .feature-list li {
+      display:flex; align-items:flex-start; gap:12px; font-size:.9rem; color:var(--text-muted); line-height:1.5;
+    }
+    .feature-list li::before {
+      content:''; width:20px; height:20px; min-width:20px; border-radius:50%;
+      background-color:rgba(200,148,42,0.12);
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23E0B44C' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat:no-repeat; background-position:center; margin-top:2px;
+    }
+
+    /* === PRICING === */
+    .pricing-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+    .pricing-card {
+      background:var(--bg-card); border-radius:var(--radius-lg); padding:40px 32px;
+      border:1px solid var(--border); position:relative; overflow:hidden;
+      transition:transform .3s, box-shadow .3s;
+    }
+    .pricing-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+    .pricing-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background:var(--gg);
+    }
+    .pricing-card.featured { border-color:rgba(200,148,42,0.3); }
+    .pricing-card.featured::before { height:4px; }
+    .pricing-badge {
+      position:absolute; top:16px; right:16px; background:var(--gg);
+      color:#fff; font-size:.68rem; font-weight:700; letter-spacing:.06em;
+      text-transform:uppercase; padding:4px 12px; border-radius:99px;
+    }
+    .pricing-tier { font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-light); margin-bottom:8px; }
+    .pricing-card h3 { font-size:1.3rem; margin-bottom:12px; }
+    .price { font-family:'DM Serif Display',serif; font-size:2.5rem; margin-bottom:4px; }
+    .price-note { color:var(--text-light); font-size:.82rem; margin-bottom:24px; }
+    .pricing-features { list-style:none; margin-bottom:28px; }
+    .pricing-features li {
+      display:flex; align-items:center; gap:10px; padding:7px 0; font-size:.85rem;
+      color:var(--text-muted); border-bottom:1px solid var(--border);
+    }
+    .pricing-features li:last-child { border-bottom:none; }
+    .pricing-features li svg { color:var(--gold-light); min-width:16px; }
+
+    /* === COMPARISON === */
+    .compare-table {
+      width:100%; border-collapse:collapse; margin-top:32px;
+    }
+    .compare-table th, .compare-table td {
+      padding:14px 20px; text-align:left; font-size:.88rem;
+      border-bottom:1px solid var(--border);
+    }
+    .compare-table th {
+      font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+      color:var(--text-light);
+    }
+    .compare-table td { color:var(--text-muted); }
+    .compare-table td:first-child { color:var(--text); font-weight:500; }
+    .compare-table .check { color:var(--gold-light); text-align:center; }
+    .compare-table .dash { color:var(--text-light); text-align:center; }
+
+    /* === BROWSER GALLERY === */
+    .browser-gallery { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:32px; }
+    .browser-frame {
+      border-radius:12px; overflow:hidden; background:#0c0818;
+      border:1px solid var(--border); box-shadow:0 16px 48px rgba(0,0,0,0.5);
+      transition:transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s;
+    }
+    .browser-frame:first-child { grid-column:1 / -1; }
+    .browser-frame:hover { transform:translateY(-6px); box-shadow:0 24px 60px rgba(0,0,0,0.6), 0 0 40px rgba(200,148,42,0.1); }
+    .browser-bar {
+      display:flex; align-items:center; gap:8px; padding:10px 16px;
+      background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border);
+    }
+    .browser-dot { width:10px; height:10px; border-radius:50%; }
+    .browser-dot:nth-child(1) { background:#ff5f57; }
+    .browser-dot:nth-child(2) { background:#febc2e; }
+    .browser-dot:nth-child(3) { background:#28c840; }
+    .browser-url {
+      margin-left:12px; flex:1; padding:5px 12px; border-radius:6px;
+      background:rgba(255,255,255,0.05); font-size:.7rem; color:var(--text-light);
+    }
+    .browser-frame img { width:100%; display:block; }
+    .browser-label {
+      text-align:center; margin-top:12px; font-size:.78rem;
+      color:var(--text-light); font-weight:600; letter-spacing:1px; text-transform:uppercase;
+    }
+
+    /* === CTA === */
+    .cta-banner {
+      min-height:100vh; scroll-snap-align:start;
+      display:flex; align-items:center; justify-content:center;
+      padding:80px 48px; text-align:center; position:relative; overflow:hidden;
+      background:linear-gradient(135deg, rgba(166,120,32,0.15) 0%, var(--bg) 50%, rgba(166,120,32,0.15) 100%);
+    }
+    .cta-banner::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse at center, rgba(200,148,42,0.1), transparent 70%);
+      pointer-events:none;
+    }
+    .cta-inner { position:relative; z-index:1; max-width:600px; margin:0 auto; }
+    .cta-banner h2 {
+      font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,3vw,2.5rem);
+      margin-bottom:16px;
+    }
+    .cta-banner p { color:var(--text-muted); margin-bottom:32px; font-size:1rem; line-height:1.7; }
+    .cta-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+    /* === FOOTER === */
+    .footer {
+      background:var(--deep); border-top:1px solid var(--border);
+      padding:40px 48px; text-align:center;
+    }
+    .footer-inner { max-width:1100px; margin:0 auto; }
+    .footer-logo { display:flex; align-items:center; gap:10px; justify-content:center; margin-bottom:16px; }
+    .footer-logo img { height:28px; width:28px; object-fit:contain; }
+    .footer-logo span { font-family:'DM Serif Display',serif; font-size:1rem; }
+    .footer-links { display:flex; gap:24px; justify-content:center; margin-bottom:16px; flex-wrap:wrap; }
+    .footer-links a { font-size:.8rem; color:var(--text-light); transition:color .2s; }
+    .footer-links a:hover { color:var(--text); }
+    .footer-copy { color:var(--text-light); font-size:.72rem; }
+
+    /* === REVEAL === */
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .7s, transform .7s; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-delay-1 { transition-delay:.1s; }
+    .reveal-delay-2 { transition-delay:.2s; }
+    .reveal-delay-3 { transition-delay:.3s; }
+    .reveal-delay-4 { transition-delay:.4s; }
+
+    /* === RESPONSIVE === */
+    @media (max-width:1024px) {
+      .nav { padding:0 24px; }
+      .hero, .section, .cta-banner { padding-left:24px; padding-right:24px; }
+      .card-grid { grid-template-columns:1fr 1fr; }
+      .steps { grid-template-columns:1fr 1fr; gap:32px; }
+      .two-col { grid-template-columns:1fr; gap:40px; }
+      .pricing-grid { grid-template-columns:1fr; max-width:500px; margin-left:auto; margin-right:auto; }
+      .feature-list { grid-template-columns:1fr; }
+    }
+    @media (max-width:768px) {
+      html { scroll-snap-type:none; }
+      .nav-links { display:none; }
+      .hero, .section, .cta-banner { min-height:auto; scroll-snap-align:none; }
+      .hero { padding:100px 20px 60px; }
+      .section { padding:60px 20px; }
+      .card-grid, .steps { grid-template-columns:1fr; max-width:460px; margin-left:auto; margin-right:auto; }
+      .hero h1 { font-size:2.2rem; }
+      .compare-table { font-size:.8rem; }
+      .compare-table th, .compare-table td { padding:10px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Silicon Bayou Designs">
+      <span>Silicon Bayou</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#portfolio">Portfolio</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#contact" class="nav-cta">Start a Project</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <div class="hero-label">Web Design & Development</div>
+      <h1>Websites That <em>Convert.</em></h1>
+      <p class="hero-sub">Custom-designed, hand-coded websites built for speed, SEO, and conversions. No templates. No page builders. Just clean code that works as hard as you do.</p>
+      <div class="hero-buttons">
+        <a href="index.html#contact" class="btn btn-primary">Start Your Site <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#process" class="btn btn-outline">See Our Process</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE BUILD -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-label reveal">What We Build</div>
+      <h2 class="section-title reveal reveal-delay-1">Sites Built for Business</h2>
+      <p class="section-subtitle reveal reveal-delay-2">From single-page landing sites to full e-commerce platforms -every site is custom.</p>
+      <div class="card-grid">
+        <div class="card reveal reveal-delay-1">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Business Websites</h3>
+          <p>Professional multi-page sites for service businesses, restaurants, law firms, contractors -anyone who needs a strong digital presence.</p>
+        </div>
+        <div class="card reveal reveal-delay-2">
+          <div class="card-icon" style="background:rgba(107,47,160,0.15);color:var(--purple-light);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </div>
+          <h3>E-Commerce</h3>
+          <p>Online stores with payment processing, inventory management, and the checkout experience that turns visitors into buyers.</p>
+        </div>
+        <div class="card reveal reveal-delay-3">
+          <div class="card-icon" style="background:rgba(26,122,60,0.15);color:var(--green-light);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <h3>Landing Pages & Funnels</h3>
+          <p>High-converting single-page sites and marketing funnels optimized for lead capture and ad campaigns.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CUSTOM -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="two-col">
+        <div class="two-col-text">
+          <div class="section-label reveal">Why Custom</div>
+          <h2 class="section-title reveal reveal-delay-1">Templates Are for Amateurs</h2>
+          <p class="reveal reveal-delay-2">WordPress themes and Squarespace templates were built for everyone -which means they were built for no one. Your business isn't generic. Your website shouldn't be either.</p>
+          <p class="reveal reveal-delay-2">We hand-code every site. That means faster load times, better SEO, pixel-perfect design, and zero bloat. Your site loads in under 2 seconds, not 8.</p>
+        </div>
+        <div>
+          <table class="compare-table reveal reveal-delay-2">
+            <thead>
+              <tr><th>Feature</th><th style="text-align:center;">Templates</th><th style="text-align:center;">Silicon Bayou</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Page speed</td><td class="dash">3-8s</td><td class="check">&lt; 2s</td></tr>
+              <tr><td>Custom design</td><td class="dash">-</td><td class="check">&#10003;</td></tr>
+              <tr><td>SEO-optimized code</td><td class="dash">-</td><td class="check">&#10003;</td></tr>
+              <tr><td>No plugin bloat</td><td class="dash">-</td><td class="check">&#10003;</td></tr>
+              <tr><td>Mobile-first</td><td class="dash">Partial</td><td class="check">&#10003;</td></tr>
+              <tr><td>Ongoing support</td><td class="dash">-</td><td class="check">&#10003;</td></tr>
+              <tr><td>Ownership of code</td><td class="dash">-</td><td class="check">&#10003;</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="two-col">
+        <div class="two-col-text">
+          <div class="section-label reveal">What's Included</div>
+          <h2 class="section-title reveal reveal-delay-1">Everything You Need to Launch</h2>
+          <p class="reveal reveal-delay-2">No hidden costs, no nickel-and-diming. Every website project includes design, development, and the foundation for long-term growth.</p>
+        </div>
+        <div>
+          <ul class="feature-list reveal reveal-delay-2">
+            <li>Custom responsive design</li>
+            <li>Mobile-first development</li>
+            <li>On-page SEO setup</li>
+            <li>Google Analytics integration</li>
+            <li>Contact forms & lead capture</li>
+            <li>Social media integration</li>
+            <li>SSL certificate setup</li>
+            <li>Performance optimization</li>
+            <li>Browser & device testing</li>
+            <li>Hosting setup & deployment</li>
+            <li>Training & documentation</li>
+            <li>30-day post-launch support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">Our Process</div>
+      <h2 class="section-title reveal reveal-delay-1">How We Build Your Site</h2>
+      <p class="section-subtitle reveal reveal-delay-2">Transparent, collaborative, and fast. You see progress every step of the way.</p>
+      <div class="steps">
+        <div class="step reveal reveal-delay-1">
+          <div class="step-num">1</div>
+          <h3>Strategy & Sitemap</h3>
+          <p>We learn your business, study your competitors, and plan the site structure that converts your specific audience.</p>
+        </div>
+        <div class="step reveal reveal-delay-2">
+          <div class="step-num">2</div>
+          <h3>Design & Mockups</h3>
+          <p>Full visual mockups for every page. You approve the design before we code anything -no surprises.</p>
+        </div>
+        <div class="step reveal reveal-delay-3">
+          <div class="step-num">3</div>
+          <h3>Development</h3>
+          <p>Clean, hand-coded HTML, CSS, and JavaScript. Built for speed, accessibility, and search engines.</p>
+        </div>
+        <div class="step reveal reveal-delay-4">
+          <div class="step-num">4</div>
+          <h3>Launch & Optimize</h3>
+          <p>Deploy to production, set up analytics, and monitor performance. We stick around to make sure everything is running perfectly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-label reveal">Investment</div>
+      <h2 class="section-title reveal reveal-delay-1">Transparent Pricing</h2>
+      <p class="section-subtitle reveal reveal-delay-2">Two tiers to match your needs. Every project is scoped individually.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card reveal reveal-delay-1">
+          <div class="pricing-tier">Starter</div>
+          <h3>Starter Website</h3>
+          <div class="price">$2,500</div>
+          <div class="price-note">Starting at &bull; 50% deposit</div>
+          <ul class="pricing-features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 5-page responsive website</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Mobile-first design</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> On-page SEO setup</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Contact form integration</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 30-day post-launch support</li>
+          </ul>
+          <a href="#stripe-starter" class="btn btn-outline" style="width:100%;justify-content:center;">Get Started - $1,250</a>
+        </div>
+        <div class="pricing-card featured reveal reveal-delay-2">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-tier">Professional</div>
+          <h3>Custom Web + SEO</h3>
+          <div class="price">$5,000</div>
+          <div class="price-note">Starting at &bull; 50% deposit</div>
+          <ul class="pricing-features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Fully custom design system</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Complete SEO audit & strategy</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Content management system</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Analytics & conversion tracking</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 90-day post-launch support</li>
+          </ul>
+          <a href="#stripe-custom" class="btn btn-primary" style="width:100%;justify-content:center;">Get Started - $2,500</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">Case Study</div>
+      <h2 class="section-title reveal reveal-delay-1">AmonHen AI - Web Platform</h2>
+      <p class="section-subtitle reveal reveal-delay-2">Enterprise compliance advisory platform. Full-stack web app with AI chat, performance dashboards, and comprehensive documentation.</p>
+      <div class="browser-gallery">
+        <div class="reveal reveal-delay-2">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+              <span class="browser-url">app.amonhenai.com</span>
+            </div>
+            <img src="assets/ah-web-advisor.png" alt="AmonHen AI Advisor Interface">
+          </div>
+          <div class="browser-label">AI Advisory Interface</div>
+        </div>
+        <div class="reveal reveal-delay-3">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+              <span class="browser-url">app.amonhenai.com/dashboard</span>
+            </div>
+            <img src="assets/ah-web-dashboard.png" alt="AmonHen Performance Dashboard">
+          </div>
+          <div class="browser-label">Performance Dashboard</div>
+        </div>
+        <div class="reveal reveal-delay-4">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+              <span class="browser-url">app.amonhenai.com/help</span>
+            </div>
+            <img src="assets/ah-web-docs.png" alt="AmonHen Documentation">
+          </div>
+          <div class="browser-label">Help & Documentation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="cta-inner">
+      <h2>Ready for a Site That Works?</h2>
+      <p>Tell us about your business. We'll design a website that looks great, loads fast, and turns visitors into customers.</p>
+      <div class="cta-buttons">
+        <a href="index.html#contact" class="btn btn-primary">Start Your Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="index.html#pricing" class="btn btn-outline">See All Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="assets/logo.png" alt="Silicon Bayou Designs">
+        <span>Silicon Bayou Designs</span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="ios-development.html">iOS Apps</a>
+        <a href="seo-growth.html">SEO</a>
+        <a href="index.html#portfolio">Portfolio</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <div class="footer-copy">&copy; 2026 Silicon Bayou Designs LLC. All rights reserved. &bull; Baton Rouge, Louisiana</div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO & Digital Growth | Silicon Bayou Designs | Baton Rouge, LA</title>
+  <meta name="description" content="Data-driven SEO services from Silicon Bayou Designs. Get found on Google, drive organic traffic, and turn search into your most powerful sales channel.">
+  <meta name="keywords" content="SEO services Baton Rouge, search engine optimization Louisiana, local SEO, digital marketing, organic traffic growth">
+  <meta property="og:title" content="SEO & Digital Growth -Silicon Bayou Designs">
+  <meta property="og:description" content="Data-driven SEO that turns Google into your most powerful sales channel.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://siliconbayoudesigns.com/seo-growth">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --bg: #0e0620;
+      --bg-alt: #130a28;
+      --bg-card: #1a0e30;
+      --text: #f0ecf8;
+      --text-muted: rgba(255,255,255,0.65);
+      --text-light: rgba(255,255,255,0.4);
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(255,255,255,0.16);
+      --purple: #6B2FA0;
+      --purple-dark: #4A1D75;
+      --purple-light: #9B5FD0;
+      --gold: #C8942A;
+      --gold-dark: #A67820;
+      --gold-light: #E0B44C;
+      --green: #1A7A3C;
+      --green-light: #22A050;
+      --deep: #08041a;
+      --gp: linear-gradient(135deg, var(--purple), var(--purple-light));
+      --gg: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+      --gn: linear-gradient(135deg, var(--green), var(--green-light));
+      --shadow: 0 8px 32px rgba(0,0,0,0.35);
+      --radius: 12px;
+      --radius-lg: 16px;
+    }
+
+    html { scroll-snap-type: y proximity; scroll-behavior: smooth; }
+    body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+    a { color:inherit; text-decoration:none; }
+    img { max-width:100%; display:block; }
+
+    /* === NAV === */
+    .nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      background:rgba(14,6,32,0.85); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border);
+      padding:0 48px; height:64px; display:flex; align-items:center; justify-content:space-between;
+    }
+    .nav-logo { display:flex; align-items:center; gap:12px; font-family:'DM Serif Display',serif; font-size:1.15rem; }
+    .nav-logo img { height:36px; width:36px; object-fit:contain; }
+    .nav-links { display:flex; align-items:center; gap:32px; }
+    .nav-links a { font-size:.85rem; font-weight:500; color:var(--text-muted); transition:color .2s; }
+    .nav-links a:hover { color:var(--text); }
+    .nav-cta {
+      background:var(--gn); color:#fff; padding:10px 22px; border-radius:99px;
+      font-size:.82rem; font-weight:600; letter-spacing:.02em;
+      transition:transform .2s, box-shadow .2s; border:none; cursor:pointer;
+    }
+    .nav-cta:hover { transform:translateY(-1px); box-shadow:0 4px 20px rgba(26,122,60,0.4); }
+
+    /* === HERO === */
+    .hero {
+      min-height:100vh; scroll-snap-align:start;
+      display:flex; align-items:center; justify-content:center;
+      padding:120px 48px 80px; position:relative; overflow:hidden; text-align:center;
+    }
+    .hero::before {
+      content:''; position:absolute; top:-40%; left:50%; transform:translateX(-50%);
+      width:800px; height:800px; border-radius:50%;
+      background:radial-gradient(circle, rgba(26,122,60,0.15) 0%, transparent 70%);
+      pointer-events:none;
+    }
+    .hero-inner { position:relative; z-index:1; max-width:800px; }
+    .hero-icon {
+      width:80px; height:80px; border-radius:20px; margin:0 auto 28px;
+      background:rgba(26,122,60,0.15); border:1px solid rgba(26,122,60,0.3);
+      display:flex; align-items:center; justify-content:center; color:var(--green-light);
+    }
+    .hero-label {
+      display:inline-flex; align-items:center; gap:8px; padding:6px 16px;
+      background:rgba(26,122,60,0.12); border:1px solid rgba(26,122,60,0.25);
+      border-radius:99px; font-size:.75rem; font-weight:600; letter-spacing:.06em;
+      text-transform:uppercase; color:var(--green-light); margin-bottom:24px;
+    }
+    .hero h1 {
+      font-family:'DM Serif Display',serif; font-size:clamp(2.5rem,5vw,4rem);
+      line-height:1.1; margin-bottom:20px;
+    }
+    .hero h1 em { color:var(--green-light); font-style:italic; }
+    .hero-sub { color:var(--text-muted); font-size:1.1rem; line-height:1.7; max-width:600px; margin:0 auto 36px; }
+    .hero-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+    /* === BUTTONS === */
+    .btn {
+      display:inline-flex; align-items:center; gap:8px; padding:14px 28px;
+      border-radius:99px; font-size:.88rem; font-weight:600; letter-spacing:.02em;
+      transition:all .3s; cursor:pointer; border:none;
+    }
+    .btn-primary { background:var(--gn); color:#fff; }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 6px 24px rgba(26,122,60,0.4); }
+    .btn-outline { background:transparent; color:var(--text); border:1px solid var(--border-hover); }
+    .btn-outline:hover { border-color:var(--green-light); color:var(--green-light); transform:translateY(-2px); }
+
+    /* === SECTIONS === */
+    .section {
+      min-height:100vh; scroll-snap-align:start;
+      display:flex; align-items:center; justify-content:center;
+      padding:80px 48px; position:relative; overflow:hidden;
+    }
+    .section-alt { background:var(--bg-alt); }
+    .section-inner { max-width:1100px; margin:0 auto; }
+    .section-label {
+      display:inline-flex; align-items:center; gap:8px; padding:6px 16px;
+      background:rgba(26,122,60,0.1); border:1px solid rgba(26,122,60,0.2);
+      border-radius:99px; font-size:.72rem; font-weight:700; letter-spacing:.08em;
+      text-transform:uppercase; color:var(--green-light); margin-bottom:16px;
+    }
+    .section-title {
+      font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,3.5vw,2.8rem);
+      line-height:1.15; margin-bottom:16px;
+    }
+    .section-subtitle { color:var(--text-muted); font-size:1rem; line-height:1.7; max-width:640px; margin-bottom:48px; }
+
+    /* === CARDS === */
+    .card-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .card {
+      background:var(--bg-card); border-radius:var(--radius-lg); padding:32px 28px;
+      border:1px solid var(--border); position:relative; overflow:hidden;
+      transition:transform .3s, box-shadow .3s, border-color .3s;
+    }
+    .card:hover { transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--border-hover); }
+    .card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      border-radius:var(--radius-lg) var(--radius-lg) 0 0; background:var(--gn);
+    }
+    .card-icon {
+      width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+      margin-bottom:18px; background:rgba(26,122,60,0.15); color:var(--green-light);
+    }
+    .card h3 { font-size:1.15rem; margin-bottom:10px; }
+    .card p { color:var(--text-muted); font-size:.88rem; line-height:1.65; }
+
+    /* === TWO-COL === */
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+    .two-col-text .section-label { margin-bottom:16px; }
+    .two-col-text .section-title { margin-bottom:16px; }
+    .two-col-text p { color:var(--text-muted); line-height:1.75; font-size:.95rem; margin-bottom:20px; }
+
+    /* === STEPS === */
+    .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:28px; }
+    .step { text-align:center; }
+    .step-num {
+      width:56px; height:56px; border-radius:50%; margin:0 auto 18px;
+      display:flex; align-items:center; justify-content:center;
+      font-family:'DM Serif Display',serif; font-size:1.2rem; font-weight:700;
+      background:rgba(26,122,60,0.12); border:2px solid rgba(26,122,60,0.3);
+      color:var(--green-light);
+    }
+    .step h3 { font-size:1.05rem; margin-bottom:8px; }
+    .step p { color:var(--text-muted); font-size:.83rem; line-height:1.6; }
+
+    /* === FEATURE LIST === */
+    .feature-list { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:14px 32px; }
+    .feature-list li {
+      display:flex; align-items:flex-start; gap:12px; font-size:.9rem; color:var(--text-muted); line-height:1.5;
+    }
+    .feature-list li::before {
+      content:''; width:20px; height:20px; min-width:20px; border-radius:50%;
+      background-color:rgba(26,122,60,0.12);
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%2322A050' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat:no-repeat; background-position:center; margin-top:2px;
+    }
+
+    /* === RESULTS GRID === */
+    .results-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+    .result-card {
+      background:var(--bg-card); border-radius:var(--radius); padding:28px 20px;
+      border:1px solid var(--border); text-align:center;
+      transition:transform .3s;
+    }
+    .result-card:hover { transform:translateY(-2px); }
+    .result-num {
+      font-family:'DM Serif Display',serif; font-size:2.2rem; color:var(--green-light);
+      margin-bottom:4px;
+    }
+    .result-label { color:var(--text-muted); font-size:.82rem; }
+    .result-sub { color:var(--text-light); font-size:.72rem; margin-top:4px; }
+
+    /* === PILLARS === */
+    .pillar-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+    .pillar {
+      background:var(--bg-card); border-radius:var(--radius-lg); padding:32px 28px;
+      border:1px solid var(--border); display:flex; gap:20px;
+      transition:transform .3s, border-color .3s;
+    }
+    .pillar:hover { transform:translateY(-2px); border-color:var(--border-hover); }
+    .pillar-num {
+      font-family:'DM Serif Display',serif; font-size:1.8rem; color:var(--green-light);
+      min-width:40px;
+    }
+    .pillar h3 { font-size:1.05rem; margin-bottom:6px; }
+    .pillar p { color:var(--text-muted); font-size:.85rem; line-height:1.6; }
+
+    /* === PRICING === */
+    .pricing-highlight {
+      background:var(--bg-card); border-radius:var(--radius-lg); padding:48px;
+      border:1px solid var(--border); position:relative; overflow:hidden;
+      text-align:center; max-width:680px; margin:0 auto;
+    }
+    .pricing-highlight::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background:var(--gn);
+    }
+    .pricing-highlight .price {
+      font-family:'DM Serif Display',serif; font-size:2.8rem; margin-bottom:4px;
+    }
+    .pricing-highlight .price-note { color:var(--text-light); font-size:.88rem; margin-bottom:16px; }
+    .pricing-highlight .price-desc { color:var(--text-muted); font-size:.95rem; line-height:1.7; max-width:520px; margin:0 auto 32px; }
+    .included-tags { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:32px; }
+    .included-tag {
+      padding:8px 18px; border-radius:99px; font-size:.8rem; font-weight:500;
+      background:rgba(26,122,60,0.1); border:1px solid rgba(26,122,60,0.2); color:var(--green-light);
+    }
+
+    /* === CTA === */
+    .cta-banner {
+      min-height:100vh; scroll-snap-align:start;
+      display:flex; align-items:center; justify-content:center;
+      padding:80px 48px; text-align:center; position:relative; overflow:hidden;
+      background:linear-gradient(135deg, rgba(26,122,60,0.1) 0%, var(--bg) 50%, rgba(26,122,60,0.1) 100%);
+    }
+    .cta-banner::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse at center, rgba(26,122,60,0.1), transparent 70%);
+      pointer-events:none;
+    }
+    .cta-inner { position:relative; z-index:1; max-width:600px; margin:0 auto; }
+    .cta-banner h2 {
+      font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,3vw,2.5rem);
+      margin-bottom:16px;
+    }
+    .cta-banner p { color:var(--text-muted); margin-bottom:32px; font-size:1rem; line-height:1.7; }
+    .cta-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+    /* === FOOTER === */
+    .footer {
+      background:var(--deep); border-top:1px solid var(--border);
+      padding:40px 48px; text-align:center;
+    }
+    .footer-inner { max-width:1100px; margin:0 auto; }
+    .footer-logo { display:flex; align-items:center; gap:10px; justify-content:center; margin-bottom:16px; }
+    .footer-logo img { height:28px; width:28px; object-fit:contain; }
+    .footer-logo span { font-family:'DM Serif Display',serif; font-size:1rem; }
+    .footer-links { display:flex; gap:24px; justify-content:center; margin-bottom:16px; flex-wrap:wrap; }
+    .footer-links a { font-size:.8rem; color:var(--text-light); transition:color .2s; }
+    .footer-links a:hover { color:var(--text); }
+    .footer-copy { color:var(--text-light); font-size:.72rem; }
+
+    /* === REVEAL === */
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .7s, transform .7s; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-delay-1 { transition-delay:.1s; }
+    .reveal-delay-2 { transition-delay:.2s; }
+    .reveal-delay-3 { transition-delay:.3s; }
+    .reveal-delay-4 { transition-delay:.4s; }
+
+    /* === RESPONSIVE === */
+    @media (max-width:1024px) {
+      .nav { padding:0 24px; }
+      .hero, .section, .cta-banner { padding-left:24px; padding-right:24px; }
+      .card-grid { grid-template-columns:1fr 1fr; }
+      .steps { grid-template-columns:1fr 1fr; gap:32px; }
+      .two-col { grid-template-columns:1fr; gap:40px; }
+      .results-grid { grid-template-columns:1fr 1fr; }
+      .pillar-grid { grid-template-columns:1fr; }
+      .feature-list { grid-template-columns:1fr; }
+    }
+    @media (max-width:768px) {
+      html { scroll-snap-type:none; }
+      .nav-links { display:none; }
+      .hero, .section, .cta-banner { min-height:auto; scroll-snap-align:none; }
+      .hero { padding:100px 20px 60px; }
+      .section { padding:60px 20px; }
+      .card-grid, .steps, .results-grid { grid-template-columns:1fr; max-width:460px; margin-left:auto; margin-right:auto; }
+      .hero h1 { font-size:2.2rem; }
+      .pricing-highlight { padding:32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Silicon Bayou Designs">
+      <span>Silicon Bayou</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#portfolio">Portfolio</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#contact" class="nav-cta">Start a Project</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div class="hero-label">SEO & Digital Growth</div>
+      <h1>Get Found. <em>Get Chosen.</em></h1>
+      <p class="hero-sub">Data-driven search engine optimization that puts your business at the top of Google. We don't guess -we measure, optimize, and grow your organic traffic month over month.</p>
+      <div class="hero-buttons">
+        <a href="index.html#contact" class="btn btn-primary">Boost Your Rankings <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#approach" class="btn btn-outline">See Our Approach</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY SEO -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-label reveal">Why SEO</div>
+      <h2 class="section-title reveal reveal-delay-1">Your Best Customers Are Searching Right Now</h2>
+      <p class="section-subtitle reveal reveal-delay-2">SEO isn't a nice-to-have -it's the highest-ROI marketing channel that exists. Here's why it matters.</p>
+      <div class="results-grid">
+        <div class="result-card reveal reveal-delay-1">
+          <div class="result-num">68%</div>
+          <div class="result-label">Online Experiences</div>
+          <div class="result-sub">Start with a search engine</div>
+        </div>
+        <div class="result-card reveal reveal-delay-2">
+          <div class="result-num">0.63%</div>
+          <div class="result-label">Page 2 Click Rate</div>
+          <div class="result-sub">If you're not on page 1, you're invisible</div>
+        </div>
+        <div class="result-card reveal reveal-delay-3">
+          <div class="result-num">14.6%</div>
+          <div class="result-label">SEO Lead Close Rate</div>
+          <div class="result-sub">vs 1.7% for outbound marketing</div>
+        </div>
+        <div class="result-card reveal reveal-delay-4">
+          <div class="result-num">5.3x</div>
+          <div class="result-label">ROI vs Paid Ads</div>
+          <div class="result-sub">Organic traffic compounds over time</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">What We Do</div>
+      <h2 class="section-title reveal reveal-delay-1">Full-Spectrum SEO Services</h2>
+      <p class="section-subtitle reveal reveal-delay-2">We cover every angle of search -technical, content, and authority -so nothing gets left behind.</p>
+      <div class="card-grid">
+        <div class="card reveal reveal-delay-1">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3>Technical SEO</h3>
+          <p>Site speed, crawlability, indexing, structured data, mobile optimization. We fix the foundation so Google can find and rank your content.</p>
+        </div>
+        <div class="card reveal reveal-delay-2">
+          <div class="card-icon" style="background:rgba(200,148,42,0.15);color:var(--gold-light);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3>Content Strategy</h3>
+          <p>Keyword research, content planning, landing page copy, and blog strategy. We create content that ranks and converts.</p>
+        </div>
+        <div class="card reveal reveal-delay-3">
+          <div class="card-icon" style="background:rgba(107,47,160,0.15);color:var(--purple-light);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          </div>
+          <h3>Link Building & Authority</h3>
+          <p>Ethical link building, local citations, brand mentions, and domain authority growth. The off-page signals that move rankings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL SEO -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="two-col">
+        <div class="two-col-text">
+          <div class="section-label reveal">Local SEO</div>
+          <h2 class="section-title reveal reveal-delay-1">Dominate Your Local Market</h2>
+          <p class="reveal reveal-delay-2">For businesses that serve a local area, local SEO is the fastest path to new customers. We optimize your Google Business Profile, build local citations, and get you into the map pack.</p>
+          <p class="reveal reveal-delay-2">When someone in Baton Rouge searches for what you do, your business shows up first. That's the goal.</p>
+        </div>
+        <div>
+          <ul class="feature-list reveal reveal-delay-2">
+            <li>Google Business Profile optimization</li>
+            <li>Local citation building</li>
+            <li>Review strategy & management</li>
+            <li>Local keyword targeting</li>
+            <li>Map pack optimization</li>
+            <li>NAP consistency audit</li>
+            <li>Local schema markup</li>
+            <li>Competitor local analysis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR APPROACH -->
+  <section id="approach" class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">Our Approach</div>
+      <h2 class="section-title reveal reveal-delay-1">The Four Pillars</h2>
+      <p class="section-subtitle reveal reveal-delay-2">SEO isn't a one-time project -it's an ongoing discipline. Here's how we structure every engagement.</p>
+      <div class="pillar-grid">
+        <div class="pillar reveal reveal-delay-1">
+          <div class="pillar-num">01</div>
+          <div>
+            <h3>Audit & Baseline</h3>
+            <p>Complete technical audit, keyword gap analysis, competitor benchmarking, and current rankings snapshot. We know exactly where you stand.</p>
+          </div>
+        </div>
+        <div class="pillar reveal reveal-delay-2">
+          <div class="pillar-num">02</div>
+          <div>
+            <h3>Fix & Optimize</h3>
+            <p>Technical fixes, on-page optimization, meta tags, internal linking, site speed improvements. We fix what's broken and optimize what's working.</p>
+          </div>
+        </div>
+        <div class="pillar reveal reveal-delay-3">
+          <div class="pillar-num">03</div>
+          <div>
+            <h3>Create & Build</h3>
+            <p>Content creation, link building, and authority development. We create the assets that move the needle and earn the signals Google rewards.</p>
+          </div>
+        </div>
+        <div class="pillar reveal reveal-delay-4">
+          <div class="pillar-num">04</div>
+          <div>
+            <h3>Measure & Iterate</h3>
+            <p>Monthly reporting, ranking tracking, traffic analysis, and strategy adjustments. Data drives every decision -no guesswork.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="two-col">
+        <div class="two-col-text">
+          <div class="section-label reveal">What's Included</div>
+          <h2 class="section-title reveal reveal-delay-1">Everything for Organic Growth</h2>
+          <p class="reveal reveal-delay-2">SEO is included with our Professional web package, or available as a standalone service. Every engagement includes these deliverables.</p>
+        </div>
+        <div>
+          <ul class="feature-list reveal reveal-delay-2">
+            <li>Full technical SEO audit</li>
+            <li>Keyword research & mapping</li>
+            <li>On-page optimization</li>
+            <li>Meta tag & schema markup</li>
+            <li>Content strategy & calendar</li>
+            <li>Google Analytics setup</li>
+            <li>Search Console integration</li>
+            <li>Competitor analysis</li>
+            <li>Monthly ranking reports</li>
+            <li>Backlink profile analysis</li>
+            <li>Page speed optimization</li>
+            <li>Conversion rate insights</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">Investment</div>
+      <h2 class="section-title reveal reveal-delay-1">Transparent Pricing</h2>
+      <p class="section-subtitle reveal reveal-delay-2">SEO is bundled with our Professional web package, or available as a standalone engagement.</p>
+      <div class="pricing-highlight reveal reveal-delay-2">
+        <div class="price">$5,000</div>
+        <div class="price-note">Starting at &bull; Included with Professional website package</div>
+        <p class="price-desc">Comprehensive SEO audit, strategy, on-page optimization, and 90 days of monitoring. For ongoing SEO services, see our Website Care Plan add-on.</p>
+        <div class="included-tags">
+          <span class="included-tag">Technical Audit</span>
+          <span class="included-tag">Keyword Strategy</span>
+          <span class="included-tag">On-Page SEO</span>
+          <span class="included-tag">Content Plan</span>
+          <span class="included-tag">Analytics Setup</span>
+          <span class="included-tag">90-Day Monitoring</span>
+        </div>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <a href="index.html#contact" class="btn btn-primary">Get a Free SEO Audit</a>
+          <a href="index.html#pricing" class="btn btn-outline">View All Packages</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="cta-inner">
+      <h2>Ready to Own Page One?</h2>
+      <p>We'll audit your current SEO for free and show you exactly where you're losing traffic -and how to get it back.</p>
+      <div class="cta-buttons">
+        <a href="index.html#contact" class="btn btn-primary">Get Your Free Audit <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="index.html#pricing" class="btn btn-outline">See All Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="assets/logo.png" alt="Silicon Bayou Designs">
+        <span>Silicon Bayou Designs</span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="ios-development.html">iOS Apps</a>
+        <a href="web-design.html">Web Design</a>
+        <a href="index.html#portfolio">Portfolio</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <div class="footer-copy">&copy; 2026 Silicon Bayou Designs LLC. All rights reserved. &bull; Baton Rouge, Louisiana</div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
