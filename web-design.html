@@ -3,6 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="SEARCH_CONSOLE_VERIFICATION_CODE">
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+  </script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "CLARITY_PROJECT_ID");
+  </script>
   <title>Web Design & Development | Silicon Bayou Designs | Baton Rouge, LA</title>
   <meta name="description" content="Custom web design and development from Silicon Bayou Designs. Responsive, lightning-fast websites that convert visitors into customers. Baton Rouge, LA.">
   <meta name="keywords" content="web design Baton Rouge, website development Louisiana, responsive web design, custom website, small business website">
@@ -10,6 +27,7 @@
   <meta property="og:description" content="Responsive, lightning-fast websites that convert visitors into customers.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://siliconbayoudesigns.com/web-design">
+  <link rel="canonical" href="https://siliconbayoudesigns.com/web-design">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
@@ -320,18 +338,80 @@
       .compare-table th, .compare-table td { padding:10px 12px; }
     }
   </style>
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Silicon Bayou Designs",
+    "url": "https://siliconbayoudesigns.com",
+    "email": "hello@siliconbayoudesigns.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Baton Rouge", "addressRegion": "LA", "addressCountry": "US" },
+    "geo": { "@type": "GeoCoordinates", "latitude": 30.4515, "longitude": -91.1871 },
+    "priceRange": "$2,500 - $10,000+",
+    "image": "https://siliconbayoudesigns.com/assets/img/logo.webp"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Web Design and Development",
+    "provider": { "@type": "ProfessionalService", "name": "Silicon Bayou Designs", "url": "https://siliconbayoudesigns.com" },
+    "areaServed": [
+      { "@type": "City", "name": "Baton Rouge" },
+      { "@type": "State", "name": "Louisiana" }
+    ],
+    "description": "Custom-designed, hand-coded websites built for speed, SEO, and conversions. No templates, no page builders.",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "2500",
+      "highPrice": "5000"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does a custom website cost?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Our custom websites start at $2,500 for a 5-page responsive site. Professional packages with full SEO strategy start at $5,000. Every project is scoped individually after a free consultation." }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to build a custom website?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A typical 5-page website takes 3-4 weeks from kickoff to launch. More complex projects with e-commerce or custom features may take 6-8 weeks. You see progress every step of the way." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I own the code and design?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. You own 100% of the code, design, and content we create for you. No licensing fees, no lock-in, no restrictions." }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between your sites and WordPress?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Our sites are hand-coded in clean HTML, CSS, and JavaScript - no WordPress, no page builders, no plugin bloat. This means faster load times (under 2 seconds vs 3-8 for WordPress), better SEO, stronger security, and zero dependency on third-party plugins." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I update the site myself after launch?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We provide training and documentation so you can make content updates. For clients who prefer hands-off management, we offer monthly Website Care Plans starting at $150/month." }
+      }
+    ]
+  }]
+  </script>
 </head>
 <body>
 
   <!-- NAV -->
   <nav class="nav">
     <a href="index.html" class="nav-logo">
-      <img src="assets/logo.png" alt="Silicon Bayou Designs">
+      <img src="assets/img/logo.webp" alt="Silicon Bayou Designs">
       <span>Silicon Bayou</span>
     </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="index.html#services">Services</a>
+      <a href="ios-development.html">iOS Apps</a>
+      <a href="seo-growth.html">SEO</a>
       <a href="index.html#portfolio">Portfolio</a>
       <a href="index.html#pricing">Pricing</a>
       <a href="index.html#contact" class="nav-cta">Start a Project</a>
@@ -516,6 +596,36 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">Common Questions</div>
+      <h2 class="section-title reveal reveal-delay-1">Frequently Asked Questions</h2>
+      <div class="faq-list reveal reveal-delay-2" style="max-width:800px;">
+        <details class="faq-item" style="border-bottom:1px solid var(--border);padding:20px 0;">
+          <summary style="cursor:pointer;font-weight:600;font-size:1rem;color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;">How much does a custom website cost? <span style="color:var(--gold-light);font-size:1.2rem;transition:transform .3s;">+</span></summary>
+          <p style="color:var(--text-muted);font-size:.9rem;line-height:1.7;margin-top:12px;">Our custom websites start at $2,500 for a 5-page responsive site. Professional packages with full SEO strategy start at $5,000. Every project is scoped individually after a free consultation.</p>
+        </details>
+        <details class="faq-item" style="border-bottom:1px solid var(--border);padding:20px 0;">
+          <summary style="cursor:pointer;font-weight:600;font-size:1rem;color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;">How long does it take to build a custom website? <span style="color:var(--gold-light);font-size:1.2rem;transition:transform .3s;">+</span></summary>
+          <p style="color:var(--text-muted);font-size:.9rem;line-height:1.7;margin-top:12px;">A typical 5-page website takes 3-4 weeks from kickoff to launch. More complex projects with e-commerce or custom features may take 6-8 weeks. You see progress every step of the way.</p>
+        </details>
+        <details class="faq-item" style="border-bottom:1px solid var(--border);padding:20px 0;">
+          <summary style="cursor:pointer;font-weight:600;font-size:1rem;color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;">Do I own the code and design? <span style="color:var(--gold-light);font-size:1.2rem;transition:transform .3s;">+</span></summary>
+          <p style="color:var(--text-muted);font-size:.9rem;line-height:1.7;margin-top:12px;">Yes. You own 100% of the code, design, and content we create for you. No licensing fees, no lock-in, no restrictions.</p>
+        </details>
+        <details class="faq-item" style="border-bottom:1px solid var(--border);padding:20px 0;">
+          <summary style="cursor:pointer;font-weight:600;font-size:1rem;color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;">What's the difference between your sites and WordPress? <span style="color:var(--gold-light);font-size:1.2rem;transition:transform .3s;">+</span></summary>
+          <p style="color:var(--text-muted);font-size:.9rem;line-height:1.7;margin-top:12px;">Our sites are hand-coded in clean HTML, CSS, and JavaScript - no WordPress, no page builders, no plugin bloat. This means faster load times (under 2 seconds vs 3-8 for WordPress), better SEO, stronger security, and zero dependency on third-party plugins.</p>
+        </details>
+        <details class="faq-item" style="padding:20px 0;">
+          <summary style="cursor:pointer;font-weight:600;font-size:1rem;color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;">Can I update the site myself after launch? <span style="color:var(--gold-light);font-size:1.2rem;transition:transform .3s;">+</span></summary>
+          <p style="color:var(--text-muted);font-size:.9rem;line-height:1.7;margin-top:12px;">Yes. We provide training and documentation so you can make content updates. For clients who prefer hands-off management, we offer monthly Website Care Plans starting at $150/month.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- PORTFOLIO -->
   <section class="section">
     <div class="section-inner">
@@ -529,7 +639,7 @@
               <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
               <span class="browser-url">app.amonhenai.com</span>
             </div>
-            <img src="assets/ah-web-advisor.png" alt="AmonHen AI Advisor Interface">
+            <img src="assets/img/ah-web-advisor.webp" alt="AmonHen AI Advisor Interface" loading="lazy" width="1200" height="800">
           </div>
           <div class="browser-label">AI Advisory Interface</div>
         </div>
@@ -539,7 +649,7 @@
               <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
               <span class="browser-url">app.amonhenai.com/dashboard</span>
             </div>
-            <img src="assets/ah-web-dashboard.png" alt="AmonHen Performance Dashboard">
+            <img src="assets/img/ah-web-dashboard.webp" alt="AmonHen Performance Dashboard" loading="lazy" width="1200" height="800">
           </div>
           <div class="browser-label">Performance Dashboard</div>
         </div>
@@ -549,7 +659,7 @@
               <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
               <span class="browser-url">app.amonhenai.com/help</span>
             </div>
-            <img src="assets/ah-web-docs.png" alt="AmonHen Documentation">
+            <img src="assets/img/ah-web-docs.webp" alt="AmonHen Documentation" loading="lazy" width="1200" height="800">
           </div>
           <div class="browser-label">Help & Documentation</div>
         </div>
@@ -573,7 +683,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-logo">
-        <img src="assets/logo.png" alt="Silicon Bayou Designs">
+        <img src="assets/img/logo.webp" alt="Silicon Bayou Designs">
         <span>Silicon Bayou Designs</span>
       </div>
       <div class="footer-links">
@@ -583,6 +693,7 @@
         <a href="seo-growth.html">SEO</a>
         <a href="index.html#portfolio">Portfolio</a>
         <a href="index.html#contact">Contact</a>
+        <a href="privacy.html">Privacy</a>
       </div>
       <div class="footer-copy">&copy; 2026 Silicon Bayou Designs LLC. All rights reserved. &bull; Baton Rouge, Louisiana</div>
     </div>
@@ -593,6 +704,20 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // CTA click tracking
+    document.querySelectorAll('.nav-cta, .btn-primary, .btn-gold').forEach(btn => {
+      btn.addEventListener('click', function() {
+        if (typeof gtag === 'function') {
+          const section = this.closest('section, nav, footer');
+          gtag('event', 'primary_cta_click', {
+            page_path: window.location.pathname,
+            cta_text: this.textContent.trim(),
+            cta_location: section ? (section.id || section.tagName.toLowerCase()) : 'unknown'
+          });
+        }
+      });
+    });
   </script>
 </body>
 </html>
