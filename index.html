@@ -251,10 +251,11 @@
       padding-bottom: .1em; overflow: visible;
     }
     .hero-brand-name .brand-line-1 {
-      display: block;
+      display: block; padding-bottom: .15em;
       background: linear-gradient(135deg, #fff 0%, var(--gold-light) 30%, var(--gold) 60%, var(--purple-light) 100%);
       background-size: 300% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text; animation: shimmer 5s linear infinite, glowPulse 4s ease-in-out infinite;
+      -webkit-box-decoration-break: clone; box-decoration-break: clone;
     }
 
     .hero-brand-designs {
