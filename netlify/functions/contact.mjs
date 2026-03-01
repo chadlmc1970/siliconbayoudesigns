@@ -76,79 +76,115 @@ export async function handler(event) {
 function autoReplyHtml(name, projectType, budget) {
   const projectLabel = projectType || "Not specified";
   const budgetLabel = budget || "Not specified";
+  const firstName = name.split(" ")[0];
 
   return `<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body style="margin:0; padding:0; background-color:#f4f4f4; font-family:Arial, Helvetica, sans-serif;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f4f4; padding:40px 20px;">
+<body style="margin:0; padding:0; background-color:#0e0620; font-family:'DM Sans', Arial, Helvetica, sans-serif;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#0e0620; padding:40px 20px;">
     <tr>
       <td align="center">
-        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background-color:#110828; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.4);">
 
-          <!-- Header -->
+          <!-- Header with gradient -->
           <tr>
-            <td style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding:32px 40px; text-align:center;">
-              <h1 style="margin:0; font-size:24px; font-weight:700; color:#c9a84c; letter-spacing:1px;">
-                Silicon Bayou Designs
+            <td style="background: linear-gradient(135deg, #6B2FA0 0%, #9B5FD0 50%, #6B2FA0 100%); padding:40px 40px 32px; text-align:center;">
+              <h1 style="margin:0; font-family:'DM Serif Display', Georgia, serif; font-size:28px; font-weight:400; color:#ffffff; letter-spacing:0.5px;">
+                Silicon Bayou
               </h1>
-              <p style="margin:8px 0 0; font-size:13px; color:#8892b0; letter-spacing:2px; text-transform:uppercase;">
-                Digital Craftsmanship &bull; Louisiana Made
+              <p style="margin:4px 0 0; font-family:'DM Sans', Arial, sans-serif; font-size:12px; color:rgba(255,255,255,0.7); letter-spacing:3px; text-transform:uppercase;">
+                Digital Craftsmanship, Louisiana Made
               </p>
+              <div style="margin:20px auto 0; width:60px; height:3px; background: linear-gradient(90deg, #C8942A, #E8B44A); border-radius:2px;"></div>
             </td>
           </tr>
 
           <!-- Body -->
           <tr>
             <td style="padding:40px;">
-              <h2 style="margin:0 0 16px; font-size:20px; color:#1a1a2e;">
-                Thank you, ${name}!
+              <h2 style="margin:0 0 8px; font-family:'DM Serif Display', Georgia, serif; font-size:24px; font-weight:400; color:#E8B44A;">
+                Hey ${firstName}! We got your message.
               </h2>
-              <p style="margin:0 0 20px; font-size:15px; line-height:1.6; color:#444;">
-                We've received your message and appreciate you reaching out.
-                A member of our team will get back to you <strong>within 24 hours</strong>.
+              <p style="margin:0 0 24px; font-size:15px; line-height:1.7; color:rgba(255,255,255,0.7);">
+                Thanks for reaching out to Silicon Bayou Designs. We're excited you're thinking about working with us &mdash; that means a lot coming from folks who know quality when they see it.
+              </p>
+              <p style="margin:0 0 28px; font-size:15px; line-height:1.7; color:rgba(255,255,255,0.7);">
+                A real human (not a bot, we promise) will personally review your inquiry and <strong style="color:#ffffff;">get back to you within 24 hours</strong>. Usually sooner &mdash; we run on Louisiana coffee and tight deadlines.
               </p>
 
-              <!-- Summary Box -->
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f8f9fa; border-radius:6px; border-left:4px solid #c9a84c; margin:24px 0;">
+              <!-- Summary Card -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background: linear-gradient(135deg, rgba(107,47,160,0.15) 0%, rgba(155,95,208,0.1) 100%); border-radius:12px; border:1px solid rgba(155,95,208,0.2); margin:0 0 28px;">
                 <tr>
-                  <td style="padding:20px 24px;">
-                    <p style="margin:0 0 4px; font-size:12px; color:#888; text-transform:uppercase; letter-spacing:1px;">Your inquiry</p>
-                    <p style="margin:0 0 8px; font-size:14px; color:#333;">
-                      <strong>Project type:</strong> ${projectLabel}
-                    </p>
-                    <p style="margin:0; font-size:14px; color:#333;">
-                      <strong>Budget range:</strong> ${budgetLabel}
-                    </p>
+                  <td style="padding:24px 28px;">
+                    <p style="margin:0 0 12px; font-size:11px; color:#9B5FD0; text-transform:uppercase; letter-spacing:2px; font-weight:700;">What you told us</p>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="padding:8px 0; border-bottom:1px solid rgba(155,95,208,0.15);">
+                          <span style="font-size:12px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:1px;">Project</span><br>
+                          <span style="font-size:15px; color:#ffffff; font-weight:500;">${projectLabel}</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:8px 0;">
+                          <span style="font-size:12px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:1px;">Budget</span><br>
+                          <span style="font-size:15px; color:#ffffff; font-weight:500;">${budgetLabel}</span>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
               </table>
 
-              <p style="margin:24px 0 0; font-size:15px; line-height:1.6; color:#444;">
-                In the meantime, feel free to reply to this email if you have
-                any additional details to share.
+              <!-- CTA-style block -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 28px;">
+                <tr>
+                  <td align="center">
+                    <table role="presentation" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="background: linear-gradient(135deg, #C8942A, #E8B44A); border-radius:8px; padding:14px 32px; text-align:center;">
+                          <a href="https://siliconbayoudesigns.com" style="font-family:'DM Sans', Arial, sans-serif; font-size:14px; font-weight:700; color:#0e0620; text-decoration:none; letter-spacing:0.5px;">Explore Our Work</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin:0 0 24px; font-size:15px; line-height:1.7; color:rgba(255,255,255,0.7);">
+                Got more details to share? Just hit reply &mdash; this inbox is monitored by actual humans who drink way too much Community Coffee.
               </p>
 
-              <p style="margin:24px 0 0; font-size:15px; color:#444;">
-                Best regards,<br>
-                <strong style="color:#1a1a2e;">The Silicon Bayou Team</strong>
-              </p>
+              <!-- Sign-off -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="border-top:1px solid rgba(155,95,208,0.2); padding-top:24px;">
+                    <p style="margin:0 0 4px; font-size:15px; color:rgba(255,255,255,0.7);">Talk soon,</p>
+                    <p style="margin:0; font-family:'DM Serif Display', Georgia, serif; font-size:18px; color:#E8B44A;">The Silicon Bayou Team</p>
+                    <p style="margin:6px 0 0; font-size:13px; color:rgba(255,255,255,0.35); font-style:italic;">Where Southern grit meets Silicon precision.</p>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
 
           <!-- Footer -->
           <tr>
-            <td style="background-color:#1a1a2e; padding:24px 40px; text-align:center;">
-              <p style="margin:0 0 8px; font-size:13px; color:#8892b0;">
+            <td style="background-color:#090415; padding:28px 40px; text-align:center; border-top:1px solid rgba(155,95,208,0.15);">
+              <p style="margin:0 0 12px; font-size:13px; color:rgba(255,255,255,0.4);">
                 Silicon Bayou Designs &bull; Baton Rouge, Louisiana
               </p>
-              <p style="margin:0; font-size:12px;">
-                <a href="https://siliconbayoudesigns.com" style="color:#c9a84c; text-decoration:none;">siliconbayoudesigns.com</a>
+              <p style="margin:0 0 16px; font-size:12px;">
+                <a href="https://siliconbayoudesigns.com" style="color:#9B5FD0; text-decoration:none;">siliconbayoudesigns.com</a>
                 &nbsp;&bull;&nbsp;
-                <a href="mailto:hello@siliconbayoudesigns.com" style="color:#c9a84c; text-decoration:none;">hello@siliconbayoudesigns.com</a>
+                <a href="mailto:hello@siliconbayoudesigns.com" style="color:#9B5FD0; text-decoration:none;">hello@siliconbayoudesigns.com</a>
+              </p>
+              <p style="margin:0; font-size:11px; color:rgba(255,255,255,0.2);">
+                &copy; ${new Date().getFullYear()} Silicon Bayou Designs LLC. All rights reserved.
               </p>
             </td>
           </tr>
