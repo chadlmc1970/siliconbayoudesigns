@@ -1040,9 +1040,10 @@
         message: document.getElementById('message').value,
       };
       try {
-        await fetch('https://formspree.io/f/xeelwpvw', {
+        const res = await fetch('/.netlify/functions/contact', {
           method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data),
         });
+        if (!res.ok) throw new Error('Submission failed');
         form.style.display = 'none'; formSuccess.style.display = 'block';
         if (typeof gtag === 'function') {
           gtag('event', 'contact_form_submit', {
